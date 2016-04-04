@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block header %}
+    {{  super() }}
+{% endblock %}
+
+{% block content %}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Amazon
+        <small>Analytics</small>
+      </h1>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+          <div class="row">
+            <div class="col-md-8">
+              <div  class=" box box-solid">
+                <div class="box-header with-border">
+
+                  <h3 class="swap-main-title box-title">{{ maintitle }}</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <embed type="image/svg+xml" src={{graph_data|safe}} style='max-width:1000px'/>
+
+                  
+                </div><!-- /.box-body -->
+
+              </div><!-- /.box -->
+            </div><!-- /.col (left) -->
+
+              <div class="col-md-4">
+                <div class="box box-primary">
+
+                    <div class="box-header with-border">
+                      <h3 class="box-title">{{mainsource}}</h3>
+                    </div><!-- /.box-header -->
+
+                      <div class="box-body">
+                        <embed type="image/svg+xml" src={{graph_data2|safe}} style='max-width:1000px'/>
+
+                        
+                      </div><!-- /.box-body -->
+                  </div>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+
+        <div  class="row">
+            
+
+            {% for path in paths %}
+            
+            <div class="col-md-4">
+                <div class="box box-primary">
+
+                    <div class="box-header with-border">
+                      <h3 class="box-title">{{titles[loop.index-1]}}</h3>
+                    </div><!-- /.box-header -->
+
+                      <div class="box-body">
+                        <embed type="image/svg+xml" src={{path|safe}} style='max-width:1000px'/>
+
+                        <
+                      </div><!-- /.box-body -->
+                  </div>
+            </div><!-- /.col -->
+            {% endfor %}
+
+        </div><!-- /.row -->
+
+
+    </section><!-- /.content -->
+  </div><!-- /.content-wrapper -->
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}
+
+{% block jsfiles %}
+    {{ super() }}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block header %}
+    {{  super() }}
+{% endblock %}
+
+{% block content %}
+
+     <div class="container" align="left">
+        <embed type="image/svg+xml" src={{graph_data|safe}} style='max-width:1000px'/>
+       </div>
+        <div class="panel panel-default">
+          <!-- Default panel contents -->
+          <div class="panel-heading">Panel heading</div>
+
+          <!-- Table -->
+          <table class="table">
+            ...
+          </table>
+        </div>    
+
+{% endblock %}
+
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}
+
+{% block jsfiles %}
+    {{ super() }}
+{% endblock %}
